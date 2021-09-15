@@ -27,3 +27,16 @@ bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 rails new projectName --database=postgresql --skip-action-mailbox --skip...
 # --skip 跳过  --database 数据库
 ```
+- `bin/rails s` 开启服务,会默认寻找数据库
+
+```bash
+# docker 安装数据库
+docker run -v projectName-data:/var/lib/postgresql/data -p 5001:5432 -e POSTGRES_USER=fang -e POSTGRES_PASSWORD=123456 -d postgres:12.2
+```
+
+## 错误
+- `FATAL: database "projectName_development" does not exist`
+```bash
+# 创建数据库
+bin/rails db:create
+```
