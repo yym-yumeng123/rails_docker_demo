@@ -9,4 +9,8 @@ class FirstController < ApplicationController
   def json
     render json: {name: 'yym', age: 12}
   end
+
+  def view
+    render 'first/view'
+  end
 end

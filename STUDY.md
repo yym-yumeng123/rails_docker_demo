@@ -54,3 +54,6 @@ group :development do
   gem 'wdm', '>= 0.1.0', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 end
 ```
+
+## HTML 继承
+- `app/views` 可以创建 html, 里面HTML 公用内容会默认继承 `application.html.erb` 里面的内容
