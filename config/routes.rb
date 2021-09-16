@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # 学习渲染 文本 & json
+  get '/hello', to: 'first#hello'
+  get '/word', to: 'first#word'
+  get '/json', to: 'first#json'
 end

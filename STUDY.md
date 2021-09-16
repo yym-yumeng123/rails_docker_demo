@@ -40,3 +40,17 @@ docker run -v projectName-data:/var/lib/postgresql/data -p 5001:5432 -e POSTGRES
 # 创建数据库
 bin/rails db:create
 ```
+
+## 修改文件, 自动刷新
+- `windows 用户`
+```bash
+# development.rb
+config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+# Gemfile
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'listen'
+  gem 'wdm', '>= 0.1.0', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+end
+```
