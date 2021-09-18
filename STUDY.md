@@ -43,6 +43,8 @@ docker run -v projectName-data:/var/lib/postgresql/data -p 5001:5432 -e POSTGRES
 ```bash
 # 创建数据库
 bin/rails db:create
+# 把已经存在的数据库删除
+bin/rails db:drop
 ```
 
 ## 运行 server
@@ -65,5 +67,3 @@ end
 
 ## HTML 继承
 - `app/views` 可以创建 html, 里面HTML 公用内容会默认继承 `application.html.erb` 里面的内容
-
-## 什么是前后端分离
