@@ -43,6 +43,13 @@
 
 ### 创建 users 表
 ```bash
+# 1
 # 创建 User 模型表
 bin/rails generate model User
+# 也可以添加参数
+bin/rails g model User email:string password_digest:string
+
+# 2
+# 数据迁移
+bin/rails db:migrate 
 ```
