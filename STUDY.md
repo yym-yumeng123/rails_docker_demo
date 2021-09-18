@@ -67,3 +67,21 @@ end
 
 ## HTML 继承
 - `app/views` 可以创建 html, 里面HTML 公用内容会默认继承 `application.html.erb` 里面的内容
+
+
+## 使用命令行查看数据库
+```bash
+# 查看运行的容器
+docker ps 
+# 进入开启的容器
+docker exec -it 容器id bash
+# 进入 postgresql 数据路
+psql -U 用户名
+# 链接数据看  \c 你得数据库名
+\c projectName_development   
+# \dt  display table 查看所有的表
+\dt
+
+# 查看某一个 表
+select * from users;
+```
