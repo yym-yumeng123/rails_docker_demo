@@ -85,3 +85,22 @@ psql -U 用户名
 # 查看某一个 表
 select * from users;
 ```
+
+# bin/rails console
+```bash
+# 可以进入rails 控制台,可以操作创建好的类
+# 例如 User , 创建sql 语句
+u = User.new
+u.email = 'xxx'
+u.password_digest = 'xxx'
+u.save
+```
+
+# rails has_secure_passsword ==> 保存密文方案
+```bash
+# 1.
+gem 'bcrypt', '~> 3.1.7'
+# 2. model 中 添加
+has_secure_password
+```
+- `model` 模型主要和数据库交互
