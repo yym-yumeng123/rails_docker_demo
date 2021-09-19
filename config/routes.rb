@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/word', to: 'first#word'
   get '/json', to: 'first#json'
   get '/html', to: 'first#view'
+
+  resources :users
 end
