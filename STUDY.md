@@ -148,7 +148,7 @@ end
 # 查看所有路由
 bin/rails routes
 
-# ==> 
+# ==>
     users GET    /users(.:format)        users#index
       user GET    /users/:id(.:format)    users#show
           POST   /users(.:format)        users#create
@@ -158,10 +158,22 @@ bin/rails routes
   new_user GET    /users/new(.:format)    users#new
 edit_user GET    /users/:id/edit(.:format)      users#edit
 ```
+
 - 创建的路由用来控制 Controller
+
 ```bash
 bin/rails g controller users
 ```
 
+- 在 `controller` 下的文件做对应路由的操作
 
+```rb
+# 示例
+class UsersController < ApplicationController
+  # 可以处理 用户从 web端 的 ajax 请求
+  # 对应路由的 create
+  def create
 
+  end
+end
+```
