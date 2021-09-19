@@ -177,3 +177,22 @@ class UsersController < ApplicationController
   end
 end
 ```
+
+# 数据验证在 model
+[validates](https://guides.rubyonrails.org/active_record_validations.html)
+
+- `validates_presence_of` ==> 一直存在
+  ```rb
+  # emial 永远存在
+  validates_presence_of :email
+  ```
+- `validates_format_of` ==> 验证格式
+  ```rb
+  # 验证 email 格式
+  validates_format_of :email, with: /.+@.+/
+  ```
+- `validates_length_of` ==> 验证数据长短
+  ```rb
+  # 验证密码长短
+  validates_length_of :password, :minimum=>6
+  ```
