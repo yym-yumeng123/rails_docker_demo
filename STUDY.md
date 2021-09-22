@@ -228,3 +228,99 @@ zh-CN:
             password_confirmation:
               blank: 确认密码不能为空
 ```
+
+# user.controller.rb 优化
+```rb
+# 初始
+def
+  user = User.new
+  user.email = params[:email]
+  user.password = params[:password]
+  user.password_confirmation = params[:password_confirmation]
+end
+# 优化
+def create
+  #:email 表示一个简短的字符串 or symbol
+  user = User.new({email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation]})
+end
+# 再次优化
+def create
+  # params.permit
+  user = User.new(params.permit(:email, :password_confirmation, :password))
+end
+
+# 优化提取函数
+def create_params
+  # rails 可以省略 return
+  params.permit(:email, :password_confirmation, :password)
+end
+
+# 使用函数 rails 可以省略括号
+def create
+  # params.permit
+  user = User.new create_params
+end
+
+#-----------------------
+
+# 优化 render json 部分
+# 初始
+if user.save
+  render json: {resources: user}, status: 200
+else
+  render json: {errors: user.errors}, status: 400
+end
+
+# 优化 ==> 把 user.save 提取出来
+user.save
+if user.valid?
+  render json: {resources: user}, status: 200
+else
+  render json: {errors: user.errors}, status: 400
+end
+
+# 提取函数
+# 返回结果处理
+def render_resources resource
+  # 可以把结果包装一下
+  if resource.valid?
+    render json: {resources: resource}, status: 200
+  else
+    render json: {errors: resource.errors}, status: 400
+  end
+end
+
+# render_resources 是所有controlleer 都能用的
+# application_controller.rb
+class ApplicationController < ActionController::API
+  # 返回结果处理
+  def render_resources(resource)
+    # 可以把结果包装一下
+    if resource.valid?
+      render json: {resources: resource}, status: 200
+    else
+      render json: {errors: resource.errors}, status: 400
+    end
+  end
+end
+```
+```rb
+def create
+  # new 和 save 继续优化
+  user = User.new create_params
+  user.save
+  render_resources user
+end
+
+# ==>
+
+def create
+  user = User.create create_params
+  render_resources user
+end
+
+# ==>
+def create
+  render_resources User.create create_params
+end
+```

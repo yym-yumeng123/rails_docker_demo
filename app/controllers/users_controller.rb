@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
+  # web 传参处理
+  def create_params
+    # rails 可以省略 return
+    # :email 表示一个简短的字符串 or symbol
+    params.permit(:email, :password_confirmation, :password)
+  end
+
   # 处理用户 ajax 请求
   def create
-    #:email 表示一个简短的字符串 or symbol
-    user = User.new
-    user.email = params[:email]
-    user.password = params[:password]
-    user.password_confirmation = params[:password_confirmation]
-    # 可以把结果包装一下
-    if user.save
-      render json: {resources: user}, status: 200
-    else
-      render json: {errors: user.errors}, status: 400
-    end
+    # 先 参数, 再 save, 再 render 结果
+    render_resources User.create create_params
   end
 
   def index
