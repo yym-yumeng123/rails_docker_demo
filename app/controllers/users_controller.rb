@@ -8,11 +8,9 @@ class UsersController < ApplicationController
 
   # 处理用户 ajax 请求
   def create
-    user = User.create create_params
     # 先 参数, 再 save, 再 render 结果
-    render_resources user
-    # 让 UserMailer 在保存之后发送一封欢迎邮件
-    UserMailer.welcome_email(user).deliver_now
+    render_resources User.create create_params
+
   end
 
   def index

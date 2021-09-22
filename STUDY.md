@@ -98,6 +98,9 @@ psql -U 用户名
 
 # 查看某一个 表
 select * from users;
+
+# 删除某个表数据
+delete from users;
 ```
 
 # bin/rails console
