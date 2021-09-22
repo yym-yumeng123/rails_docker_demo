@@ -196,3 +196,35 @@ end
   # 验证密码长短
   validates_length_of :password, :minimum=>6
   ```
+
+
+# 国际化 I18n
+```rb
+# 1. 创建
+# config/initializers/locale.rb
+
+# 应用可用的区域设置白名单 英文 和中文
+I18n.available_locales = [:en, "zh-CN"]
+
+# 修改默认区域设置（默认是 :en） 设置为中文
+I18n.default_locale = "zh-CN"
+```
+
+```yml
+# 2. 创建 zh-CN.yml
+# 根据错误路径来显示
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: 密码不能为空
+              too_short: 密码不能少于 6 个字符
+            email:
+              blank: 邮箱不能为空
+              invalid: 邮箱不合法  
+            password_confirmation:
+              blank: 确认密码不能为空
+```
