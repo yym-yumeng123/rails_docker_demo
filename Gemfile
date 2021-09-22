@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Model has_secure_password ==> 密码
 gem 'bcrypt', '~> 3.1.7'
+# 保护 env 密码
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -324,3 +324,28 @@ def create
   render_resources User.create create_params
 end
 ```
+
+# 邮箱注册后, 发送邮件
+- 参考 [邮箱使用指南](https://rails-guides.upgradecoder.com/action_mailer_basics.html)
+   - 2. 发送邮件
+   - 6. 配置 `Action Mailer`
+
+```rb
+# qq 邮箱配置
+# 账户开启 smtp 服务
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.perform_caching = false
+config.action_mailer.smtp_settings = {
+    address: ENV['smtp_domain'],
+    port: ENV['smtp_port'],
+    domain: ENV['smtp_domain'],
+    user_name: ENV['smtp_username'],
+    password: ENV['smtp_password'],
+    authentication: ENV['smtp_authentication'],
+    enable_starttls_auto: ENV['smtp_enable_starttls_auto']
+}
+config.action_mailer.preview_path = "#{Rails.root}/spsc/mailers/previews"
+```
+
+# dotenv-rails github ==> 保护env 的内容
