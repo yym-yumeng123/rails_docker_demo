@@ -359,3 +359,43 @@ config.action_mailer.preview_path = "#{Rails.root}/spsc/mailers/previews"
 - `ActiveModel` 是轻量的 `ActiveRecord`, 不存在数据库, 其他都一样
 # 登录 session
 - 是不需要数据库的, 不需要每次登录记录到数据库
+
+```bash
+bin/rails g controller sessions 
+```
+
+# ActiveModel 无法使用 create
+```rb
+class SessionsController < ApplicationController
+  def create_params
+    params.permit(:email, :password)
+  end
+
+  def create
+    # 我们添加, 但不放入 数据库 new & new 不会触发验证
+    render_resources Session.new create_params
+  end
+
+  def destroy
+  
+  end
+end
+
+# ==>
+class SessionsController < ApplicationController
+  def create_params
+    params.permit(:email, :password)
+  end
+
+  def create
+    s = Session.new create_params
+    # 触发验证
+    s.validate
+    render_resources s
+  end
+
+  def destroy
+  
+  end
+end
+```

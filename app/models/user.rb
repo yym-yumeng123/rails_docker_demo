@@ -17,6 +17,6 @@ class User < ApplicationRecord
   after_create :send_welcome_email 
   def send_welcome_email
     # 让 UserMailer 在保存之后发送一封欢迎邮件
-    UserMailer.welcome_email(self).deliver_now
+    UserMailer.with(user: self).welcome_email.deliver_later
   end
 end

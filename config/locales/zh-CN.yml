@@ -1,4 +1,15 @@
 zh-CN:
+  activemodel:
+    errors:
+      models:
+        session:
+          attributes:
+            password:
+              blank: 密码不能为空
+              too_short: 密码不能少于 6 个字符
+            email:
+              blank: 邮箱不能为空
+              invalid: 邮箱不合法  
   activerecord:
     errors:
       models:
