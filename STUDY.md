@@ -399,3 +399,21 @@ class SessionsController < ApplicationController
   end
 end
 ```
+
+# 自定义校验
+```rb
+class Session
+  # 1. validate 不加s, 自定义校验
+  validate :check_email, if: :email
+
+  # 2. 定义
+  def check_email
+    user = User.find_by email: email
+    # 如果 user 为 空
+    if user.nil?
+      # 3. errors.add
+      errors.add :email, :not_found
+    end
+  end
+end
+```

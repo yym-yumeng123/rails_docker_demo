@@ -9,7 +9,8 @@ zh-CN:
               too_short: 密码不能少于 6 个字符
             email:
               blank: 邮箱不能为空
-              invalid: 邮箱不合法  
+              invalid: 邮箱不合法
+              not_found: 邮箱未注册
   activerecord:
     errors:
       models:
