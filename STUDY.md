@@ -352,3 +352,10 @@ config.action_mailer.preview_path = "#{Rails.root}/spsc/mailers/previews"
 ```
 
 # dotenv-rails github ==> 保护env 的内容
+
+# ActiveRecord & ActiveModel
+- `ActiveRecord` 就是 rails 封装的 `ORM` ==> 数据库里的记录
+- User 继承 ActiveRecord, 因此 User 是数据库里的表, user 是记录
+- `ActiveModel` 是轻量的 `ActiveRecord`, 不存在数据库, 其他都一样
+# 登录 session
+- 是不需要数据库的, 不需要每次登录记录到数据库

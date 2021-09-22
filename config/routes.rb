@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/word', to: 'first#word'
   get '/json', to: 'first#json'
   get '/html', to: 'first#view'
-
+  
+  # 注册用户
   resources :users
+  # 会话登录
+  resources :sessions, only: [:create, :destory]
 end
