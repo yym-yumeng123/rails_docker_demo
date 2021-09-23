@@ -438,3 +438,16 @@ session[:current_user_id] = id
 # set cookie 的key
 config.session_store :cookie_store, key: '_morney_session_id'
 ```
+
+# 记住密码怎么做?
+1. 用户选择记住密码 ==> 传给 server 端
+2. server 端返回一个 `随机数(数据库, 过期时间)` 给 `user(带有随机数)`
+3. 当 user 再次访问, 登录过期了, 但有一个随机数
+4. server 端查看这个随机数是否是之前给的随机数, 并且未过期
+   ```
+   session[:current_user_id] = 随机数.user.id
+   ```
+5. 如何设计这个数据库呢?
+   - `user` 表加两个字段 `login_token 随机数`, `login_token_expired_at 过期时间`
+   - 这会出现一个问题: 在不同设备之间登录, 会出现覆盖的问题
+   - 或者可以设计一个 `user_login_data 表`, 存放不同设备的 

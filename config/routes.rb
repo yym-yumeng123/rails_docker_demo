@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   
   # 注册用户
   resources :users
-
+  # 会话登录
+  resources :sessions, only: [:create]
+  # 获取当前用户信
   get '/user_info', to: 'users#info'
 
-  # 会话登录
-  resources :sessions, only: [:create, :destory]
+  # 注销用户
+  delete '/sessions', to: 'sessions#destroy'
 end
