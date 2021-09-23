@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   
   # 注册用户
   resources :users
+
+  get '/user_info', to: 'users#info'
+
   # 会话登录
   resources :sessions, only: [:create, :destory]
 end
