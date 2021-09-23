@@ -15,7 +15,7 @@ class Session
 
   def check_email
     # user = user || User.find_by ==>
-    user ||= User.find_by email: email
+    @user ||= User.find_by email: email
     # 如果 user 为 空
     if user.nil?
       errors.add :email, :not_found
@@ -23,7 +23,7 @@ class Session
   end
 
   def email_password_match
-    user ||= User.find_by email: email
+    @user ||= User.find_by email: email
     # 如果 用户存在 并且 密码不对
     if user and not user.authenticate(password)
       errors.add :password, :missmatch

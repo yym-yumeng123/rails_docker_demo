@@ -29,5 +29,7 @@ module ProjectName
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    # Be sure to restart your server when you modify this file.
+    config.session_store :cookie_store, key: '_morney_session_id'
   end
 end

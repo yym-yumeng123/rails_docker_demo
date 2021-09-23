@@ -417,3 +417,24 @@ class Session
   end
 end
 ```
+
+# 用 session 记录用户登录状态
+- 如果 `rails api` 模式, 则没有 session, 可以添加中间件
+```rb
+session[:current_user_id] = id
+```
+- `attr_accessor` 做了什么? 三件事
+```rb
+# 解决 session model 里的 bug
+
+# attr_accessor :xxx,
+# 1 声明一个对象的属性 @xxx
+# 2. 声明一个方法 def xxx ==> 获取 @xxx 的值
+# 3. def xxx = 赋值给 @xxx
+```
+- 在`application.rb` 配置
+
+```rb
+# set cookie 的key
+config.session_store :cookie_store, key: '_morney_session_id'
+```
