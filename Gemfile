@@ -41,6 +41,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen'
   gem 'wdm', '>= 0.1.0', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :test do
