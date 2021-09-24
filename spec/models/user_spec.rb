@@ -32,4 +32,10 @@ RSpec.describe User, type: :model do
     expect(mailer).to have_received(:deliver_later)
     
   end
+
+  it 'if email empty string only tips empty' do
+    user = User.create email: ''
+    expect(user.errors.details[:email].length).to eq 1
+    expect(user.errors.details[:email][0][:error]).to eq :blank
+  end
 end

@@ -8,8 +8,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   # 确认密码 create时存在
   validates_presence_of :password_confirmation, on: [:create]
-  # 验证 email 格式
-  validates_format_of :email, with: /.+@.+/, if: :email
+  # 验证 email 格式, allow_blank将跳过所有空白值的验证
+  validates_format_of :email, with: /.+@.+/, if: :email, :allow_blank => true
   # 验证密码长短
   validates_length_of :password, minimum: 6, on: :create, if: :password
 

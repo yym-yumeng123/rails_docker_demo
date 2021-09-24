@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
     if resource.errors.empty?
       render json: {resources: resource}, status: 200
     else
-      render json: {errors: resource.errors}, status: 400
+      render json: {errors: resource.errors}, status: 422
     end
   end
 end
