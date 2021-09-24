@@ -19,7 +19,7 @@ gem 'dotenv-rails'
 gem 'kaminari'  # 分页
 
 # 为了文档的 body 不出现 [binary data]
-gem 'rspec_api_documentation', '6.1.0', git: 'git@github.com:jrg-team/rspec_api_documentation.git'
+gem 'rspec_api_documentation'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
