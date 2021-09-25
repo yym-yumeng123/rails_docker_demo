@@ -6,3 +6,10 @@
 - `controller测什么` ==> 测 响应体 和响应头 (状态码, Cookie)
 - 不出现 `binary data` ==> config/initializers
 - `spec/acceptance`, `spec/requests` 都是 测试 controller
+
+```bash
+bin/rake docs:generate
+
+# 打开
+doc/api/index.html
+```
