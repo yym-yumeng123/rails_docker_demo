@@ -152,8 +152,7 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
-Content-Type: application/x-www-form-urlencoded
+            <pre class="request headers">Content-Type: application/json
 Cookie: </pre>
 
           <h4>Route</h4>
@@ -161,33 +160,22 @@ Cookie: </pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">email=1%40qq.com&password=123456&password_confirmation=123456</pre>
+            <pre class="request body">{"email":"1@qq.com","password":"123456","password_confirmation":"123456"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 1; mode=block
-X-Content-Type-Options: nosniff
-X-Download-Options: noopen
-X-Permitted-Cross-Domain-Policies: none
-Referrer-Policy: strict-origin-when-cross-origin
-Content-Type: application/json; charset=utf-8
-ETag: W/&quot;40ab80502aadd3116c62f9cd81cefda4&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: a9df672b-5768-4a0c-9400-c063df6d91c5
-X-Runtime: 0.295290
-Content-Length: 204</pre>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resources&quot;: {
-    &quot;id&quot;: 225,
+    &quot;id&quot;: 231,
     &quot;email&quot;: &quot;1@qq.com&quot;,
-    &quot;password_digest&quot;: &quot;$2a$04$U6Ofz6qZThDkvQvOYoU9n.jZ3seVauUTjAEC4xdcqf6Mn9uWG4XCG&quot;,
-    &quot;created_at&quot;: &quot;2021-09-24T09:33:23.468Z&quot;,
-    &quot;updated_at&quot;: &quot;2021-09-24T09:33:23.468Z&quot;
+    &quot;password_digest&quot;: &quot;$2a$04$rGYtST0tSf.EGKytCTu7H.dY2klhF8uS.eTYKqLcoMgXdOF6rruvm&quot;,
+    &quot;created_at&quot;: &quot;2021-09-25T09:23:13.500Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-09-25T09:23:13.500Z&quot;
   }
 }</pre>
       </div>

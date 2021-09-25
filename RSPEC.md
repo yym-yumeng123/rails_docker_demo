@@ -4,3 +4,5 @@
 
 - `model测什么` ==>  validation 和 public 方法
 - `controller测什么` ==> 测 响应体 和响应头 (状态码, Cookie)
+- 不出现 `binary data` ==> config/initializers
+- `spec/acceptance`, `spec/requests` 都是 测试 controller
