@@ -66,3 +66,16 @@ bin/rails db:migrate
 # 带 s
 bin/rails g controller users
 ```
+
+
+# Record 记录
+- params: 金额
+- params: 类型: 支出 or 收入
+- params: 标签: 衣食住行...
+
+```bash
+# 创建model
+bin/rails g model record
+# 数据迁移
+bin/rails db:migrate
+```
