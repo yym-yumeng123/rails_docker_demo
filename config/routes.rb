@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 
   # 注销用户
   delete '/sessions', to: 'sessions#destroy'
+
+  # 记录
+  resources :records
 end
