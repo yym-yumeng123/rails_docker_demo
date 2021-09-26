@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   # 记录
   resources :records
+
+  # 标签
+  resources :tags
 end
