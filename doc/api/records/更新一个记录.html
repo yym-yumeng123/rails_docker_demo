@@ -109,38 +109,75 @@ table th, table td {
       <h1>Records API</h1>
 
       <div class="article">
-        <h2>获取一个的记录</h2>
-        <h3>GET /records/:id</h3>
+        <h2>更新一个记录</h2>
+        <h3>PATCH /records/:id</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">amount</span>
+                </td>
+                <td>
+                  <span class="description">金额</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">category</span>
+                </td>
+                <td>
+                  <span class="description">类型: outgoings: 1|income: 2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">notes</span>
+                </td>
+                <td>
+                  <span class="description">备注</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _morney_session_id=ZxxxwNKj00dw8poN9QZyJWyh3FgM8ldF0kR5Amf%2FNurVIZU0Gu%2F4X0FO1291%2FYoWFa9FmaopdwGvUEjbcx%2Bid4w1K%2BJTagnSS5ag%2BrflbCBQch%2BL8Phf3a6%2F54ERt9W8ySFEd3mdODU7RigWUmwqsshjiAj4m8jbx0sZSU%2BIYU4zUFEDu55RdsGYLNC36bbYzjfZCHWZoCNiGWXcX5po6GNBQmapOw%3D%3D--EXeSodse7y4Ns8C8--hbnM4jXrKef0CepYrKBdKA%3D%3D</pre>
+Cookie: _morney_session_id=dQqyJL0uujoqfpIqeZFj6WCX4naW0EnIHQnaXXj4Xc9TB%2FjJKSFMW%2BIqilEfnoIeKkqSzFnGneko%2F1WsunibdvAzMjdKFMRa%2BjY4kEqPt%2BGOVnVaEaMlWu%2BUR8nK5UxppnvE%2FGRnX78irLguStn0tFwwLZ1tdne1iTp1Y7vgdcBXWoVC5hu9A36VGVDF3E%2FPh24pOEHdRuPKXGoBCbWqdMVGmCd7bQ%3D%3D--5H%2B0nxrcj7Di9Ab9--9IeIccXuxD2521Lw0J2iuA%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /records/385</pre>
+          <pre class="request route highlight">PATCH /records/386</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"amount":9900,"category":"outgoings","notes":"生活开支"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _morney_session_id=OESoBtSc73EPRPaP6sLjVQPWMBYN1E8Vt%2FWTYNIJC1TvRal5HOooGrhE03TqQObl0bb8beaLIw6im2WPg0Ck7g%2BiqnCIBx9sc2IBMXxHicR%2BYwlWsRzlksGsJ2GKnkV6crQUfx1LlCIzGJWmcXut5INkFR9dkDGJyvudVdULdOkavVuYOIqqaAWMApnu9NTjaDmBfNP4GYWBVDEwlIsugCRjxJoPtA%3D%3D--u7qHCJ6T8gycQe%2B1--Ts4RBdRhO9LWYvBiOgM4jw%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _morney_session_id=CoR9UBefgKRFKNXJ8ksSAqz94j1y%2B1L6U%2FBzHvTM%2FXC9iMg4cV%2FIJT39x%2Fp8zUmrpQUGQHB4ITi6Ynzid6ytGaiOmJhS8qbc1D0WVO2uBP4%2FCklxUuHUm3tSrvRSZKA8sQdfnyNajpE4HSFMDD6pLuNeTvceXjlljqnsjBt6R%2FI8ihfMHc2BzsmRp6AeUdTjiEwHZJ4DDZSO0AwTXvFlxdJkL6vTVQ%3D%3D--ukiqEg3h%2BdffWN%2Fu--PoSZuGZRmfJx3E74Rm8sCA%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resources&quot;: {
-    &quot;id&quot;: 385,
-    &quot;amount&quot;: 10000,
-    &quot;category&quot;: &quot;income&quot;,
-    &quot;notes&quot;: null,
-    &quot;created_at&quot;: &quot;2021-09-26T08:37:17.226Z&quot;,
-    &quot;updated_at&quot;: &quot;2021-09-26T08:37:17.226Z&quot;
+    &quot;id&quot;: 386,
+    &quot;amount&quot;: 9900,
+    &quot;category&quot;: &quot;outgoings&quot;,
+    &quot;notes&quot;: &quot;生活开支&quot;,
+    &quot;created_at&quot;: &quot;2021-09-26T08:37:17.254Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-09-26T08:37:17.262Z&quot;
   }
 }</pre>
       </div>
