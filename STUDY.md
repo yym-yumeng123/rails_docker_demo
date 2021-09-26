@@ -451,3 +451,33 @@ config.session_store :cookie_store, key: '_morney_session_id'
    - `user` 表加两个字段 `login_token 随机数`, `login_token_expired_at 过期时间`
    - 这会出现一个问题: 在不同设备之间登录, 会出现覆盖的问题
    - 或者可以设计一个 `user_login_data 表`, 存放不同设备的 
+
+
+# 所有请求都需要登录后
+1. 在需要登录的地方 => 方法 must_sign_in
+2. 在 `application_controller.rb` 定义 `must_sign_in` `raise error`
+3. `rescue_from error` 捕获 error, 调用方法
+```rb
+# 所有接口都要用到, application_controller.rb
+# :: 说明当前命名空间下的 类
+
+# 捕获错误
+rescue_from CustomError::MustSignInError, with: :render_must_sign_in
+def must_sign_in
+  # 如果当前用户为空
+  if current_user.nil?
+    raise CustomError::MustSignInError
+  end
+end
+def render_must_sign_in
+  render status: :unauthorized
+end
+
+
+# 自己定义一个错误的类 lib/custom_error.rb
+# 自定义error
+module CustomError
+  class MustSignInError < StandardError
+  end
+end
+```

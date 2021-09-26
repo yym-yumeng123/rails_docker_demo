@@ -1,5 +1,13 @@
+require 'custom_error'
 class ApplicationController < ActionController::API
-  private
+  rescue_from CustomError::MustSignInError, with: :render_must_sign_in
+
+  def must_sign_in
+    if current_user.nil?
+      raise CustomError::MustSignInError
+    end
+  end
+
   # 使用会话中 :current_user_id  键存储的 ID 查找用户
   # Rails 应用经常这样处理用户登录
   # 登录后设定这个会话值，退出后删除这个会话值
@@ -17,5 +25,9 @@ class ApplicationController < ActionController::API
     else
       render json: {errors: resource.errors}, status: 422
     end
+  end
+
+  def render_must_sign_in
+    render status: :unauthorized
   end
 end
