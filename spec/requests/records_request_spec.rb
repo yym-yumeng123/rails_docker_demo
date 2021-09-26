@@ -7,8 +7,7 @@ RSpec.describe "Records", type: :request do
 
   end
   it 'create records' do
-    user = User.create email: '1@qq.com', password: '123456', password_confirmation: '123456'
-    sign_in user
+    sign_in
     # 存钱按照货币最小值计算  分 ==> 100 块 ==> 10000 分
     post '/records', params: {amount: 10000, category: 'outgoings', notes: '猪脚饭'}
     expect(response.status).to eq 200
@@ -17,8 +16,7 @@ RSpec.describe "Records", type: :request do
   end
 
   it 'should not create records' do
-    user = User.create email: '1@qq.com', password: '123456', password_confirmation: '123456'
-    sign_in user
+    sign_in
     post '/records', params: { category: 'outgoings', notes: '猪脚饭'}
     expect(response.status).to eq 422
     body = JSON.parse(response.body)

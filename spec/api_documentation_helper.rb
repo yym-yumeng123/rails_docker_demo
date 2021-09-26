@@ -10,3 +10,17 @@ RSpec.configure do |config|
     end
   end
 end
+
+# 扩展
+module RspecApiDocumentation::DSL
+  module Endpoint
+    def sign_in(user = nil)
+      user ||= User.create! email: 'spec_test-helper@qq.com', password: '123456', password_confirmation: '123456'
+      # 不生成文档
+      no_doc do
+        client.post '/sessions', {email: user.email, password: user.password}
+      end
+      user # return user
+    end
+  end
+end
