@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>API文档</title>
-  <meta charset="utf-8">
-  <style>
-    
+  <head>
+    <title>Records API</title>
+    <meta charset="utf-8">
+    <style>
+      
 body {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 13px;
@@ -39,7 +39,7 @@ pre {
 
 td.required .name:after {
   float: right;
-  content: &quot;required&quot;;
+  content: "required";
   font-weight: normal;
   color: #F08080;
 }
@@ -102,36 +102,37 @@ table th, table td {
   text-align: left;
 }
 
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>API文档</h1>
-  
-    请求数据格式：默认使用JSON格式，但也支持 application/x-www-form-urlencoded 格式。
-    状态码：200表示成功，400表示失败，422表示表单数据校验不通过，其他状态码请查阅维基百科。
-  
-  <div class="article">
-    <h2>Records</h2>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Records API</h1>
 
-    <ul>
-      <li>
-        <a href="records/创建记录.html">创建记录</a>
-      </li>
-      <li>
-        <a href="records/删除记录.html">删除记录</a>
-      </li>
-    </ul>
-  </div>
-  <div class="article">
-    <h2>Users</h2>
+      <div class="article">
+        <h2>删除记录</h2>
+        <h3>DELETE /records/:id</h3>
 
-    <ul>
-      <li>
-        <a href="users/创建文档(注册).html">创建文档(注册)</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/json
+Cookie: _morney_session_id=EjVduHQONjb4Nrup6dqlijUqYSUKI9Qf4zjhMbASSP%2F1TfiUt%2BgDv0if%2BAAz97EpliSXIvohFNrsD0FPGG7O%2BGbwsopipgWJbpy5Qgzm5%2Fh0ymx52QbjNzLzK2KR2AQwX91X3QXem9y9badd0zEvsYyaJyvETzVBKVplUYZ4W9KXyofP00nuv6prk9zU5a8btvC06krCRN9qS8gELHkbn1i8RJJ35w%3D%3D--1pz4D33zxqSYo6lC--oqA7WErD1ASF%2BKln%2FoWl%2BQ%3D%3D</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">DELETE /records/50</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json
+Set-Cookie: _morney_session_id=hQmVSaMCJ2u5%2BljZFfSh%2Bd2JhwSYZ3au77hGmMuF%2BZ2Ojo80afE7svQSZFrKcxzezTt3n7qrDxFrTXJAjaviqxkxjg7aFxY1AQ%2FxtkThJ30HQ6WwqJzZQL3J22ObySGcHwY8oodnZtk%2F1cOJleF9apFSpBEiUe5Oi1lccliik34YMfA01Ub9nOundguXN8HBqBnkSVR%2BDehllytE%2FYYeoKZcaBAi3w%3D%3D--GiGUAsOnetGJ5EXr--Ct7PZVkHgJVaEt%2FWVjBAKA%3D%3D; path=/; HttpOnly</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+      </div>
+    </div>
+  </body>
 </html>
