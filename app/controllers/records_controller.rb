@@ -21,6 +21,12 @@ class RecordsController < ApplicationController
     render_resources Record.find(params[:id])
   end
 
+  def update
+    record = Record.find(params[:id])
+    record.update(create_params)
+    render_resources record
+  end
+
   private
 
   def render_index_resources(resources)
