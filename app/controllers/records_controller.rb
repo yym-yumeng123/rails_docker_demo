@@ -29,10 +29,6 @@ class RecordsController < ApplicationController
 
   private
 
-  def render_index_resources(resources)
-    render json: {resources: resources}
-  end
-
   def create_params
     params.permit(:amount, :category, :notes)
   end

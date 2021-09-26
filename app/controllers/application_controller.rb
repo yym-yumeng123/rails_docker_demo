@@ -28,6 +28,10 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def render_index_resources(resources)
+    render json: {resources: resources}
+  end
+  
   def render_must_sign_in
     render status: :unauthorized
   end
