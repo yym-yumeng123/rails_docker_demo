@@ -39,4 +39,41 @@ RSpec.describe "Records", type: :request do
       expect(response.status).to be 200
     end
   end
+
+  context 'index' do
+    it 'should not get records before sign in' do
+      get '/records'
+      expect(response.status).to be 401
+    end
+
+    it 'should get records after sign in' do
+      (1..11).to_a.map do
+        Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭'
+      end
+      sign_in
+      get '/records'
+      expect(response.status).to be 200
+      body = JSON.parse response.body
+      expect(body['resources'].length).to eq 10
+    end
+  end
+
+  context 'show' do
+    it 'should not get a record before sign in' do
+      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭'
+      get "/records/#{record.id}"
+      expect(response.status).to be 401
+    end
+    it 'should get a record after sign in' do
+      sign_in
+      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭'
+      get "/records/#{record.id}"
+      expect(response.status).to be 200
+    end
+    it 'should not get a record because not fount' do
+      sign_in
+      get "/records/999999999999999999"
+      expect(response.status).to be 404
+    end
+  end
 end
