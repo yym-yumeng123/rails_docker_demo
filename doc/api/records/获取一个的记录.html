@@ -109,8 +109,8 @@ table th, table td {
       <h1>Records API</h1>
 
       <div class="article">
-        <h2>删除记录</h2>
-        <h3>DELETE /records/:id</h3>
+        <h2>获取一个的记录</h2>
+        <h3>GET /records/:id</h3>
 
 
 
@@ -118,20 +118,31 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _morney_session_id=vl9CQ3Bbi8rxfGv6O0KazXcH1N1IekOqk7fE%2FFrPivF75nDfmBYwBvavhAdjBOQkLgBWrljFPrHNmZG29Sfj%2FXdXDMui7P6KzAROJRnU1XJA3xd%2FyON%2Fx5bQB%2FVfJIXf5omwLPB3bw4aI1Tu4sOomXLsWzswr%2B3SYIf%2Forzii3lVz1xPQ4hbeyMM39GmrY9cnSy%2FYewcet6mEUiQvEcLe9ee1Nprnw%3D%3D--%2B%2F7u7VppsmSR2UcO--4on39fOoB0ugFRu8z6W4pA%3D%3D</pre>
+Cookie: _morney_session_id=XBQ%2F1l8CK1OMhGVvcHEw9DqvTlSrAPolfoUTI47N0OOAjw6aa7Sbh5mP4iDJvNTzz37h8SobS5BszkUvTnooAwoEFzHTZf1RIzF%2BFvX2WP4l4vl9Tt1etkgNrID4LCl9HGGrNd7%2BBwejmbsYSn2ox3kx%2FlXTc36PDD2IOGOr%2Fzt3IoLe3eIha86I0dSDDcUnb9GMbDZjeK0xiZdofi8JFL1rljf9cg%3D%3D--t2L4tMGq49M4kf2c--ZE5FCtfGhsLT5NcObsPQ6g%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /records/216</pre>
+          <pre class="request route highlight">GET /records/228</pre>
 
 
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/json
-Set-Cookie: _morney_session_id=J8p9V1IMN02V9yRMn49ZC7OBjkEKKTT6Zwar6qfwkp1lO%2FAQfFwWv4GVTGWv8wjw2qDcOfPpLvuuKikuSxGGWsomlqTfgmPvt%2Bu023C1tW3dDhZy9OUPeKuWbWr66dceXPYsgLf%2FniQ%2FArQNWCensIV6k8HXiP2Xxq%2B4h%2BGcJwXdCv1HeJkZFXIAnq6nmVsUA0eGcu9W8ssNO6GasmyqpdveOkhhWw%3D%3D--EjKZR1TKnztrEhh2--SPqi49gsJOWKwbxDmC2tRQ%3D%3D; path=/; HttpOnly</pre>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+Set-Cookie: _morney_session_id=Pz02wNipUZev0aqKYqXs4XJLjmBr%2BSmOwPp0UXdmdF9YQEjoL26hYDv3%2FywfEfBDKhTe3EL2hNGyb7FHiiGY8yUNm%2BxJRcx7WXtX0OjVEgmrQxv7ZJyfEywZB5bcw0aL1ReS7UQ5HfSZdQYpTKWY663%2F3UaO%2BBT5MaqHP0mrmsXb1Ut%2BUzhvW1EAjpfQrYIJojLkMibY3vWvy1Vcl7tHiGFEHdP1Lw%3D%3D--KyN3UUDFIhFV0yhW--HUjFELdTpoTaA4cBINJxHA%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;resources&quot;: {
+    &quot;id&quot;: 228,
+    &quot;amount&quot;: 10000,
+    &quot;category&quot;: &quot;income&quot;,
+    &quot;notes&quot;: null,
+    &quot;created_at&quot;: &quot;2021-09-26T08:12:08.722Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-09-26T08:12:08.722Z&quot;
+  }
+}</pre>
       </div>
     </div>
   </body>
