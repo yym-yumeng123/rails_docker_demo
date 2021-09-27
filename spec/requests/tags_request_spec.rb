@@ -24,4 +24,20 @@ RSpec.describe "Tags", type: :request do
       expect(body['errors']['name'][0]).to eq '标签名不能为空'
     end
   end
+
+  
+  context 'destory' do
+    it 'should not destory a tag before sign in' do
+      tag = Tag.create! name: 'xxx'
+      delete "/tags/#{tag.id}"
+      expect(response.status).to be 401
+    end
+
+    it 'should destory a tag' do
+      sign_in
+      tag = Tag.create! name: 'xxx'
+      delete "/tags/#{tag.id}"
+      expect(response.status).to be 200
+    end
+  end
 end
