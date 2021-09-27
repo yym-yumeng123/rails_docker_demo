@@ -90,3 +90,67 @@ bin/rails g model tag
 
 bin/rails db:migrate
 ```
+
+# Tagging 关联数据库
+1. 关联 `record` 和 `tag`
+   - 一个记录可以有多个标签
+   - 一个标签可以有多个记录
+   - n => n
+
+2. 我们可以创建另外一张表
+   - `例如: r1 -> t1, r1 -> t2, t1 -> r2, ...`
+   - `taggings model` ==> `record_id, tag_id`
+
+
+```rb
+# 引用 record tag
+class CreateTaggings < ActiveRecord::Migration[6.0]
+  def change
+    create_table :taggings do |t|
+      t.references :record, null: false
+      t.references :tag, null: false
+      t.timestamps
+    end
+  end
+end
+```
+
+# 这三个表的从属关系
+- `record has_many tagging`
+- `tag has_magy tagging`
+- `tagging belongs_to record`
+- `tagging belongs_to tag`
+- 通过上面推导 `record has_many tag` `tag has_many record`
+
+
+```rb
+# tagging.rb
+class Tagging < ApplicationRecord
+  belongs_to :record
+  belongs_to :tag
+
+  validates :record_id, presence: true
+  validates :tag_id, presence: true
+end
+
+# tag.tb
+class Tag < ApplicationRecord
+  has_many :taggings
+  has_many :records, through: :taggings
+
+  validates :name, presence: true
+end
+
+# record.rb
+class Record < ApplicationRecord
+  # 我拥有很多从属, taggings
+  has_many :taggings
+  # 因为每一个 tagging 又属于某一个 tag, 所以 rcord 拥有很多 tags,  通过 taggings
+  has_many :tags, through: :taggings
+
+  enum category: {  outgoings: 1, income: 2 }
+  
+  validates :amount, presence: true
+  validates :category, presence: true
+end
+```
