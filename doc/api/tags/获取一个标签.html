@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Records API</title>
+    <title>Tags API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Records API</h1>
+      <h1>Tags API</h1>
 
       <div class="article">
-        <h2>获取一个的记录</h2>
-        <h3>GET /records/:id</h3>
+        <h2>获取一个标签</h2>
+        <h3>GET /tags/:id</h3>
 
 
 
@@ -118,10 +118,10 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _morney_session_id=P%2Bj%2BLjslVdhzIQG3gxt%2FcuVIRe2x3S1WurerJ3FnTU6pbAg2Zu92RVP4jz4OVwIUAx4tmedREeR%2Bs16SwKlnkio1vihHOmUQaTsjMrix5KPIIYOZ9NEeC%2BMUgiQOxjeKOx9qce%2Bm0CDk%2B0UdmsKnmdNJByNDpdZERk9XQn0lwk%2FfyVWL3%2BAX8Lv17IeIANJMMSvnxUBujZL8WMlhh7k0MM%2FiKMuWxg%3D%3D--UkcC6Yv%2FSZnH%2FaHl--7JZRPZCqrVt7U3hhg2u0Pg%3D%3D</pre>
+Cookie: _morney_session_id=h%2BazVoTSeSIsymAeXHWcKagMP1rOVZuaVe%2FWim6tzl2UfTiXBj1FdK4JGCsr3OkgRHkKlEiZxae58rGSM5xLpZV2cNenPxgxEw6t3dt4UQQVS5oCXQtQfdPM9JwTnR5PECvnAIAgwaw3jafu4BC1WmuKkyszhYvzhaNvoPwE00JcRWyzadPoeodleAKXVWaRw2AA%2FBEbsMbDIM29OL4p2jr6%2BQ%2BscA%3D%3D--M6jrE6XkFG97yelI--Z0rGLwSLX81lP9Ho87wq4g%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /records/928</pre>
+          <pre class="request route highlight">GET /tags/124</pre>
 
 
 
@@ -129,18 +129,16 @@ Cookie: _morney_session_id=P%2Bj%2BLjslVdhzIQG3gxt%2FcuVIRe2x3S1WurerJ3FnTU6pbAg
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _morney_session_id=GLYiYgpCJUPZWSfVGBjHFArwjPOeRRzgo3W7gKmHhNMaxsB8e2a5ButVONBA0OJM7l58K7%2F6ZWwxab9G3fUAMkNndn0C%2BhHTPmqVakYtB%2FEgv%2FFpsTnT1%2BW%2B05o6NXucPAUE2snftZQaGEdlR9mv0oZ2W3Eo6nKP6K%2F4xAo1Ys6tw%2BSTj27AlssESeGeneMw2gyVNpRUtuDSpaO%2FTWBbUSAR1m%2Bpww%3D%3D--T09YTveieu1CWbX%2B--a8BjpVnzgV0q1mNFBE9dQw%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _morney_session_id=K%2BOc6F7Hlcrbquwoyrs0iD4y0c3hzASr4PutwtfbWDfQkQSOp%2BvyHq%2FZRoc9yQnX3hl36OkR1wzuHa6NuKo5CXsalqQlrzlGvssa3%2BF5gxckoZ2xCOsQ9RPKnTBJ0a4AmGrwmj5IXiCrRzpnCX8jSryTytG61jSmPobjDNhPVjc8jCw2YbkBQLqQSQ7FR9y9SO79bOKEN3q%2FUbj5r0aYGdvDxN1lRw%3D%3D--R4vkkJc%2FVHEikDrG--VaRSNrMRliFkXKM8P4Xayg%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resources&quot;: {
-    &quot;id&quot;: 928,
-    &quot;amount&quot;: 10000,
-    &quot;category&quot;: &quot;income&quot;,
-    &quot;notes&quot;: null,
-    &quot;created_at&quot;: &quot;2021-09-27T08:06:54.271Z&quot;,
-    &quot;updated_at&quot;: &quot;2021-09-27T08:06:54.271Z&quot;
+    &quot;id&quot;: 124,
+    &quot;name&quot;: &quot;饮食&quot;,
+    &quot;created_at&quot;: &quot;2021-09-27T08:06:54.425Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-09-27T08:06:54.425Z&quot;
   }
 }</pre>
       </div>
