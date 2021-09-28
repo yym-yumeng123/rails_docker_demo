@@ -1,3 +1,4 @@
+
 FactoryBot.define do
   factory :record do
     amount { 10000 }

@@ -30,14 +30,14 @@ RSpec.describe "Records", type: :request do
 
   context 'destory' do
     it 'should not destory a record before sign in' do
-      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+      record = create :record
       delete "/records/#{record.id}"
       expect(response.status).to be 401
     end
 
     it 'should destory a record' do
       sign_in
-      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+      record = create :record
       delete "/records/#{record.id}"
       expect(response.status).to be 200
     end
@@ -51,7 +51,7 @@ RSpec.describe "Records", type: :request do
 
     it 'should get records after sign in' do
       (1..11).to_a.map do
-        Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+        create :record
       end
       sign_in
       get '/records'
@@ -63,13 +63,13 @@ RSpec.describe "Records", type: :request do
 
   context 'show' do
     it 'should not get a record before sign in' do
-      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+      record = create :record
       get "/records/#{record.id}"
       expect(response.status).to be 401
     end
     it 'should get a record after sign in' do
       sign_in
-      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+      record = create :record
       get "/records/#{record.id}"
       expect(response.status).to be 200
     end
@@ -82,14 +82,14 @@ RSpec.describe "Records", type: :request do
 
   context 'update' do
     it 'should not update a record before sign in' do
-      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+      record = create :record
       patch "/records/#{record.id}", params: {amount: 9900}
       expect(response.status).to eq 401
     end
 
     it 'should update a record' do
       sign_in
-      record = Record.create! amount: 10000, category: 'outgoings', notes: '猪脚饭', user: @user
+      record = create :record
       patch "/records/#{record.id}", params: {amount: 9900}
       expect(response.status).to eq 200
       body = JSON.parse response.body
