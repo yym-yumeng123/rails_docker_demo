@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   # 标签
   resources :tags
+
+  # 关联 tags & records
+  resources :taggings
 end
