@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   resources :tags
 
   # 关联 tags & records
-  resources :taggings
+  resources :taggings, except: [:update]
 end
