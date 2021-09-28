@@ -484,3 +484,10 @@ end
 
 # Ruby 小知识
 - 在 Ruby 中，有 `public、private 和 protected` 三种方法，其中只有 public 方法才能作为控制器的动作
+
+# factory_bot_rails
+```rb
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+```
