@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tags API</title>
+    <title>Taggings API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Tags API</h1>
+      <h1>Taggings API</h1>
 
       <div class="article">
-        <h2>删除标签</h2>
-        <h3>DELETE /tags/:id</h3>
+        <h2>获取一个标记</h2>
+        <h3>GET /taggings/:id</h3>
 
 
 
@@ -118,20 +118,30 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _morney_session_id=y6VQqAE%2BvBYWsfAJs7eNYJNvu7pdcNZavGiBw4sRvj7EGeb63h6y7HDspTIpKhdmZ8Frm9PtbMOWHwIxSn1AI9vUehWBA26mumvLlz4TgkxqVOgXvKmp9ut75zHGoEKKCklE62pb5Us1pe7d0t%2B5EVSTXErEMT9uFx6KLLzTPJYNaCoMiV78FpgvxQE3VTqmeLlIs5KFknZTz3Kvj5zP9Oi%2FCAn4AQ%3D%3D--7jJYbOwqSMdawNE6--jtKyLJjZR8JAEDPhTpXXAA%3D%3D</pre>
+Cookie: _morney_session_id=EKOcW72jkDIniHbBe60jcJziLfuaImrN%2Bu3HjRYgiET4E7WtW3xlfOWVvMDRNdvOvEueSEefK6aRNnPKSJzHE%2B%2FMdZbdtvxos%2BbJ24YQ8ICZGtgfGFuylJLNQ2nTn4siNomawLHmFLJk4gkm2ppIs%2F%2BqnkKVvqF2MQs4I2967wTIxjowG%2BOqneGeBADnhjFWCRtUE4K51DWPvAdh%2B6WM5vU4609beA%3D%3D--jC1IXphQTMqE%2FCgf--hM%2BPfaAqM6Ywo%2FRGvzzAsQ%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /tags/1299</pre>
+          <pre class="request route highlight">GET /taggings/624</pre>
 
 
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/json
-Set-Cookie: _morney_session_id=Wzqssxm0W7I5A4qfzB7rG%2BlvUq6lLM%2FAdO94WWCLweQL6YjD6MKI9ayXHbmu1zJQrVt96jodb7giajCFJLD%2FDi5vcx7oujPD03%2BGtzoy3qVA9B2Z7Oa3r%2Fs0cZGfja5WXaj1C6IUjg9uaZed5Z7sojFE%2BreHbhG7OnEx%2Blrjjm3gX7LI3S5llDxQKoDKAkls1LjwJMcTHG5VehtER2yv5nkA7VoASw%3D%3D--hbBdTikMDjoZ7Nrt--tb9IlsfqgK9Shx0SDkx%2F8Q%3D%3D; path=/; HttpOnly</pre>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+Set-Cookie: _morney_session_id=kotbW7HVuFWupzG43Gif4%2BOGqGiPvThLiQ29aT9lGT2muGYuZHkUPcC4DGqXfiryAeq4FnxjPvvF79m06NUVS9JZFGGq%2BAl%2B28puwBvEIWxE3OnJPDneY06l46rOGFfI7l97Yl387duHOsJP9GI1hOZ9UHmNqO8MKCtqDR%2Bdh6fip4bz4jYwLbu1h3cr%2B53E%2BvMpMSJo3ybdYPYjPqj5f2q9TfwbwQ%3D%3D--aWFkgkJqbSNkoSnl--DCnUaox%2FTz6po3%2FwKEQAjg%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;resources&quot;: {
+    &quot;id&quot;: 624,
+    &quot;record_id&quot;: 1492,
+    &quot;tag_id&quot;: 1315,
+    &quot;created_at&quot;: &quot;2021-09-28T09:08:52.251Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-09-28T09:08:52.251Z&quot;
+  }
+}</pre>
       </div>
     </div>
   </body>

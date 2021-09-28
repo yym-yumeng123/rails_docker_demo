@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Records API</title>
+    <title>Taggings API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Records API</h1>
+      <h1>Taggings API</h1>
 
       <div class="article">
-        <h2>更新一个记录</h2>
-        <h3>PATCH /records/:id</h3>
+        <h2>创建标记</h2>
+        <h3>POST /taggings</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,26 +123,18 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">amount</span>
+                    <span class="name">tag_id</span>
                 </td>
                 <td>
-                  <span class="description">金额</span>
+                  <span class="description">标签ID</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">category</span>
+                    <span class="name">record_id</span>
                 </td>
                 <td>
-                  <span class="description">类型: outgoings: 1|income: 2</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">notes</span>
-                </td>
-                <td>
-                  <span class="description">备注</span>
+                  <span class="description">记录ID</span>
                 </td>
               </tr>
             </tbody>
@@ -153,31 +145,30 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Content-Type: application/json
-Cookie: _morney_session_id=6cYX8gcdb0MJx2rRsx7v1E1jx7vORNcbzmpsSfqh1rQ6hbD9L7SBRH4cE%2BKJ6TYddWSSMZc43ezWPSB8fdfVtdRGhq%2FxzYohbSXftKme15Vj9YEZr%2FePMY5xK5Nc2JENpXgsZDcPHmc2UbslAJEZZLh9NxGG%2BhDPaDPccG0WgjIB15%2FaOQ6oC1VqdcocM75dX%2BXxwV5uLSqjhisbTiyUzYbHasCwig%3D%3D--dHtLRviHxtr9ndW7--PfXyOT95u8zGR6hAGTJLhQ%3D%3D</pre>
+Cookie: _morney_session_id=8KeJynwBvXTypSe3d4eYn7f6EHa1yN5JGZ%2BSS%2FXIarCq2pRvYhhp6jQ1IMBup4pjS4Nba1Xe9%2BzLVGYLE8qi5NYxmEFFRWOHE5jhsCjXjLMw5PY01eNbhIeBgG5W3mbrkYaondkFRPfeQnzou9Jafvxd0YfyhSiXdp5kE%2Ba9VwV8fv61OeTnlHQHJUXJBq05KKobifoGx5Nb%2FmnfjGf5%2Fiy3OM1a2w%3D%3D--%2Bi6VUODwQE9btml%2F--gj9NBrpd2RwoP05cc8AA6A%3D%3D</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /records/1488</pre>
+          <pre class="request route highlight">POST /taggings</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"amount":9900,"category":"outgoings","notes":"生活开支"}</pre>
+            <pre class="request body">{"tag_id":1302,"record_id":1489}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Set-Cookie: _morney_session_id=Hi057Thc9PLSohGa85sINe18Ee7qaT6uUWMTcwzjrRgot7snGo2ECassKcTAcIqekuJHxasWamMvSjnspV%2F%2BHDAr%2BPPV0MTkTA0sD3NsH1S5jsCr%2B6ABeC9mmGBBCL8ghNNbVEWaaYk7IO8CiHaxI5i1opL4nZuqKM5a2mq6hUX1FgFJNw1JP0q%2Ff3i8NDSy3sUJ8b0jn6VgWEDSZJGAMcTSH69Gyw%3D%3D--dDTxXHxEBogegMBJ--PwxU63Dy1LKlUf9A9f3ecg%3D%3D; path=/; HttpOnly</pre>
+Set-Cookie: _morney_session_id=wScVySsXfOrslVmeUdYjXyiD7moIj4ZfRZ3F1P%2F%2Fi6dDMd8eStB1cyjWCBi%2F6e0XL1v%2FMiMUJt08uUbo%2FkV%2Bv03Y29hB2uV4gR5zhvGTGEAP6gddlCsTmh1HCQ0SRpQnd73I94q8IN1q4klYLOiokNxyZQjauOKBF6M5kZERKzgC3Vg%2BdmwsYehNc3lgw1sKp9TE5CV0Fd3cV8UY60ChoVXg4Km%2FKQ%3D%3D--dIg04JVsOoEr8roq--bPTawZUMYoo8KbNyB1rEMw%3D%3D; path=/; HttpOnly</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;resources&quot;: {
-    &quot;id&quot;: 1488,
-    &quot;amount&quot;: 9900,
-    &quot;category&quot;: &quot;outgoings&quot;,
-    &quot;notes&quot;: &quot;生活开支&quot;,
-    &quot;created_at&quot;: &quot;2021-09-28T09:08:51.800Z&quot;,
-    &quot;updated_at&quot;: &quot;2021-09-28T09:08:51.821Z&quot;
+    &quot;id&quot;: 611,
+    &quot;record_id&quot;: 1489,
+    &quot;tag_id&quot;: 1302,
+    &quot;created_at&quot;: &quot;2021-09-28T09:08:52.076Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-09-28T09:08:52.076Z&quot;
   }
 }</pre>
       </div>
