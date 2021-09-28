@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Tagging, type: :model do
   before :each do
-    @user = User.create! email: 'agjgsr@qq.com', password: '123456', password_confirmation: '123456'
+    @user = create(:user, email: 'agjgsr@qq.com')
   end
   it 'record must presence' do
     tag = Tag.create! name: 'test'
