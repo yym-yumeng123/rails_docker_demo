@@ -3,7 +3,8 @@ class RecordsController < ApplicationController
   before_action :must_sign_in
 
   def create
-    render_resources Record.create create_params
+    # 合并 参数 user
+    render_resources Record.create create_params.merge user: current_user
   end
 
   def destroy

@@ -154,3 +154,25 @@ class Record < ApplicationRecord
   validates :category, presence: true
 end
 ```
+
+# 关联 User 和 Record
+```bash
+# 迁移数据库
+bin/rails g migration addUserToRecords
+```
+```rb
+# 修改数据库 => add user 到 Record
+class AddUserToRecords < ActiveRecord::Migration[6.0]
+  def change
+    add_reference :record, :user
+  end
+end
+```
+
+```rb
+# reocrd.rb
+belongs_to :user
+
+# user.rb
+has_many :records
+```

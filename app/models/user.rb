@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :records
+
   has_secure_password
   # model 里面对数据进行验证
 
