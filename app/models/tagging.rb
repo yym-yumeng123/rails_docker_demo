@@ -4,4 +4,6 @@ class Tagging < ApplicationRecord
   # 属于record, 所以需要在 record 中 set 
   belongs_to :record, required: true
   belongs_to :tag, required: true
+
+  belongs_to :user
 end
