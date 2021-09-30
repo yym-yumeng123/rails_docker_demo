@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :must_sign_in
 
   def create
-    render_resources Tag.create create_params
+    render_resources Tag.create create_params.merge user: current_user
   end
 
   def destroy

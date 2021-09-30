@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'rspec_api_documentation/dsl'
 
 resource "Tags" do
-  let(:tag){Tag.create! name: '饮食'}
+  let(:tag){create :tag}
   let(:id){tag.id}
   let(:name){'饮食'}
 
@@ -25,11 +25,12 @@ resource "Tags" do
 
   get "/tags" do
     parameter :page, '页码', type: :integer
-    (1..11).to_a.map do |i|
-      Tag.create! name: "test#{i}"
-    end
+
     let(:page) {1}
     example '获取所有标签' do
+      (1..11).to_a.map do |i|
+        create :tag
+      end
       sign_in
       do_request
       expect(status).to eq 200
