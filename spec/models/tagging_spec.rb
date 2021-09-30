@@ -21,7 +21,7 @@ RSpec.describe Tagging, type: :model do
   it 'has record and tag' do
     tag = create :tag
     record = create :record
-    tagging = Tagging.create record: record, tag: tag
+    tagging = create :tagging, record: record, tag: tag
     expect(tag.records.first.id).to eq record.id
     expect(record.tags.first.id).to eq tag.id
   end
@@ -31,10 +31,10 @@ RSpec.describe Tagging, type: :model do
     tag2 = create :tag, name: 'test2'
     record1 = create :record
     record2 = create :record
-    Tagging.create record: record1, tag: tag1
-    Tagging.create record: record1, tag: tag2
-    Tagging.create record: record2, tag: tag1
-    Tagging.create record: record2, tag: tag2
+    create :tagging, record: record1, tag: tag1
+    create :tagging, record: record1, tag: tag2
+    create :tagging, record: record2, tag: tag1
+    create :tagging, record: record2, tag: tag2
     expect(tag1.records.count).to eq 2
     expect(tag2.records.count).to eq 2
     expect(record1.tags.count).to eq 2

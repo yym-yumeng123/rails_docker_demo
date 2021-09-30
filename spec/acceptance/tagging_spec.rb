@@ -7,11 +7,11 @@ resource "Taggings" do
   let(:tag_id){tag.id}
   let(:record_id){record.id}
   let(:record){create :record}
-  let(:tagging){Tagging.create! tag: tag, record: record}
+  let(:tagging){create :tagging}
   let(:id){tagging.id}
   let(:taggings){
     (1..10).to_a.map do |i|
-      Tagging.create! record: record, tag: (create :tag, name: "test#{i}")
+      create :tagging
     end
   }
 

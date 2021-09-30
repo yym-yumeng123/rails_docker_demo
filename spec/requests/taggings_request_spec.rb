@@ -5,9 +5,9 @@ RSpec.describe "Taggings", type: :request do
     @user = create(:user, email: 'agjgsr@qq.com')
     @record = create :record
     @tag = create :tag
-    @tagging = Tagging.create! tag: @tag, record: @record
+    @tagging = create :tagging
     (1..10).to_a.map do |i|
-      Tagging.create! record: @record, tag: (create :tag, name: "test#{i}")
+      create :tagging
     end
   end
   context 'create' do
