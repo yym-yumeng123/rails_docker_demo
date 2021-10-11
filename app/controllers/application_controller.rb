@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
   # Rails 应用经常这样处理用户登录
   # 登录后设定这个会话值，退出后删除这个会话值
   def current_user
-    @_current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
+    @current_user ||= User.find_by_id session[:current_user_id]
   end
 
 
@@ -22,14 +22,14 @@ class ApplicationController < ActionController::API
     return head 404 if resource.nil?
     # 可以把结果包装一下
     if resource.errors.empty?
-      render json: {resources: resource}, status: 200
+      render json: {resources: resource, msg: 'success', status: 200}, status: 200
     else
       render json: {errors: resource.errors}, status: 422
     end
   end
 
   def render_index_resources(resources)
-    render json: {resources: resources}
+    render json: {resources: resources, msg: 'success', status: 200}
   end
   
   def render_must_sign_in

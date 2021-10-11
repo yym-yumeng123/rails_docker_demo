@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
   # 获取所有
   def index
     # 需要分页 page => 第几页 per 一页几条数据, 默认10条
-    render_index_resources  Record.page(params[:page]).per(params[:per_page])
+    render_index_resources Record.where("user_id = ?", session[:current_user_id]).page(params[:page]).per(params[:per_page])
   end
 
   def show
@@ -33,4 +33,6 @@ class RecordsController < ApplicationController
   def create_params
     params.permit(:amount, :category, :notes)
   end
+
 end
+
